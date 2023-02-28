@@ -31,7 +31,7 @@ def main():
     global play_game
 
     # Contains the Hangman words player has to guess
-    word_to_guess = ["helicopter", "player", "random"] 
+    word_to_guess = ["helicopter", "player", "random", "rainpour", "choice"] 
     # The random module helps us choose a random word from word_to_guess
     word = random.choice(word_to_guess)
     # Helps us get length of the string 
