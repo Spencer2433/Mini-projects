@@ -8,17 +8,17 @@ import time
 import os
 
 #Initial steps to invite in the game
-# print(f"\n Welcome to Hangman by Spencer Moriasi\n")
-# name = input("What is your name: ")
-# os.system("cls")
-# print(name, f"welcome to my world!")
-# time.sleep(1)
-# print(f"\nEnjoy it!")
-# time.sleep(3)
-# print(f"\nThe game is about to start")
-# time.sleep(3)
+ print(f"\n Welcome to Hangman by Spencer Moriasi\n")
+ name = input("What is your name: ")
+ os.system("cls")
+ print(name, f"welcome to my world!")
+ time.sleep(1)
+ print(f"\nEnjoy it!")
+ time.sleep(3)
+ print(f"\nThe game is about to start")
+ time.sleep(3)
 
-# os.system("cls")
+ os.system("cls")
 
 
 # The main function initializes our count, display, word, already_guessed, length and play_game
