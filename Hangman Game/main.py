@@ -53,6 +53,7 @@ def play_loop():
     while play_game not in ["y", "Y", "yes", "Yes", "YES", "n" , "N", "no", "No", "NO"]:
         play_game = input(f"Do you want to play again? \n 'Y' = 'yes' 'N' = 'no'\n" )
     if play_game in ["y", "Y", "yes", "Yes", "YES"]:
+        # Main function is called to initialize the variables again and to pick another random word
         main()
         hangman()
     elif play_game in ["n" , "N", "no", "No", "NO"]:
@@ -170,11 +171,14 @@ def hangman():
             print(f"You guessed:", already_guessed)
             print(f"The remaining part:", word)
             play_loop()
-
+    
+    # Since we are removing letters from word, we win if word is left with all blanks
     if word == '_' * length:
         print("Congratulations! You have guessed the word correctly")
         play_loop()
 
+    # If the count is not equal to the limit, run hangman function again
+    # The values will not be initialized since the are initialized in the main function    
     elif count != limit:
         hangman()
 
