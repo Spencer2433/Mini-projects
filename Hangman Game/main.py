@@ -8,17 +8,17 @@ import time
 import os
 
 #Initial steps to invite in the game
- print(f"\n Welcome to Hangman by Spencer Moriasi\n")
- name = input("What is your name: ")
- os.system("cls")
- print(name, f"welcome to my world!")
- time.sleep(1)
- print(f"\nEnjoy it!")
- time.sleep(3)
- print(f"\nThe game is about to start")
- time.sleep(3)
+print(f"\n Welcome to Hangman by Spencer Moriasi\n")
+name = input("What is your name: ")
+os.system("cls")
+print(name, f"welcome to my world!")
+time.sleep(1)
+print(f"\nEnjoy it!")
+time.sleep(1)
+print(f"\nThe game is about to start")
+time.sleep(3)
 
- os.system("cls")
+os.system("cls")
 
 
 # The main function initializes our count, display, word, already_guessed, length and play_game
@@ -48,12 +48,14 @@ def main():
 def play_loop():
     # play_game is used to either continue the game after its played once or end it according to the user
     global play_game
-    play_game = input(f"Do you want to play again? \n 'Y' = 'yes' \n'N' = 'no'" )
-    while play_game not in ['y', 'n', 'Y', 'N']:
+    play_game = input(f"Do you want to play again? \n 'Y' = 'yes' \n 'N' = 'no'\n" )
+    
+    while play_game not in ["y", "Y", "yes", "Yes", "YES", "n" , "N", "no", "No", "NO"]:
         play_game = input(f"Do you want to play again? \n 'Y' = 'yes' 'N' = 'no'\n" )
-    if play_game == "y":
+    if play_game in ["y", "Y", "yes", "Yes", "YES"]:
         main()
-    elif play_game == "n":
+        hangman()
+    elif play_game in ["n" , "N", "no", "No", "NO"]:
         print(f"Thank you for playing.")
         exit()
 
@@ -69,9 +71,11 @@ def hangman():
     # Takes the input from the user for the guessed word
     guess = input(f"This is the Hangman Word: " + display + f"\nEnter your guess: \n")
     # To remove the user provided letter from the random word
+    # Everything is stripped apart from the 'guess'
     guess = guess.strip()
-    # If loop to check if guess was empty, two or more letters or a number and calls hangman again
-    if len(guess.strip()) == 0 or len(guess.strip()) >= 2 or guess <= "9":
+    
+    # If loop to check if guess was not one letter or was a number then calls hangman again
+    if len(guess.strip()) != 1 or guess <= "9":
         print("Invalid input. Try a letter.")
         hangman()
 
@@ -82,8 +86,10 @@ def hangman():
         # Finding index position of the guessed letter using find method
         index = word.find(guess)
         # Finding the guessed letter position in the word
+        # Prints the letters till it gets to the guess, prints an underscore, then coninues printing the words
         word = word[:index] + "_" + word[index + 1 :]
         # Filling the guessed letter in the word
+        # Prints the underscores till it gets to the guess, prints the guess, then continues printing underscores
         display = display[:index] + guess + display[index + 1:]
         print(display + '\n')
 
@@ -162,7 +168,7 @@ def hangman():
             print(f"Wrong guess. You are hanged!!")
             # The user is shown his guess
             print(f"You guessed:", already_guessed)
-            print(f"The correct word is:", word)
+            print(f"The remaining part:", word)
             play_loop()
 
     if word == '_' * length:
