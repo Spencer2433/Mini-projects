@@ -30,8 +30,9 @@ result = tk.StringVar()
 
 def play():
     # For the computer choice we select a random choice from the choises list
-    # This return the choice as a list hence we call it via [0]
-    comp_choice = random.choices(['rock', 'paper', 'scissors'])[0]
+    # random.choices() returns one list element as one element in a list
+    # random.choice() returns one list element as an element
+    comp_choice = random.choice(['rock', 'paper', 'scissors'])
 
     user_pick = user_input.get() # to access user_input which is outside our function
     if user_pick == comp_choice:
