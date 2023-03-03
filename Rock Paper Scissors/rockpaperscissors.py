@@ -30,7 +30,7 @@ result = tk.StringVar()
 
 def play():
     # For the computer choice we select a random choice from the choises list
-    # random.choices() returns one list element as one element in a list
+    #random.choices() returns one list element as one element in a list
     # random.choice() returns one list element as an element
     comp_choice = random.choice(['rock', 'paper', 'scissors'])
 
@@ -68,14 +68,14 @@ def reset():
 def exit():
     root.destroy()
 
-play_button = tk.Button(root, text = "PLAY", width = 7, height = 1, padx = 5,bg = 'seashell2', font = 'Arial', command = play).place(x = 350, y = 100)
+play_button = tk.Button(root, text = "PLAY", width = 7, height = 1, padx = 5,bg = 'blue', fg = 'white', font = 'Arial', command = play).place(x = 350, y = 100)
 
 game_outcome = tk.StringVar()
 tk.Entry(root, width = 50, font = 'Arial', textvariable = result).place( x = 5, y = 150)
 
-reset_button = tk.Button(root, text = "RESET", width = 7, height = 1, padx = 5, bg = 'seashell2', font = 'Arial', command = reset).place(x = 100, y = 200)
+reset_button = tk.Button(root, text = "RESET", width = 7, height = 1, padx = 5, bg = 'green', fg = 'white', font = 'Arial', command = reset).place(x = 100, y = 200)
 
-exit_button = tk.Button(root, text = "EXIT", width = 5, height = 1, bg = 'seashell2', font = 'Arial', command = exit).place(x = 300, y = 200)
+exit_button = tk.Button(root, text = "EXIT", width = 5, height = 1, bg = 'red',fg = 'white', font = 'Arial', command = exit).place(x = 300, y = 200)
 
 # Run the application window
 root.mainloop()
